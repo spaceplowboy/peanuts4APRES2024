@@ -35,8 +35,8 @@ write.csv(peanutStatesTab,"peanutStatesTab.csv")
 
 ######
 
-DSFW0 <- nass_data(agg_level_desc = "STATE", 
-                  short_desc = "FIELDWORK - DAYS SUITABLE, MEASURED IN DAYS / WEEK ")
+DSFW0 <- nass_data(agg_level_desc = "STATE",
+                   short_desc = "FIELDWORK - DAYS SUITABLE, MEASURED IN DAYS / WEEK ")
 
 DSFW <- DSFW0 %>% 
   filter(state_name != "US TOTAL") %>%
@@ -173,8 +173,9 @@ for(i in 1:nlevels(factor(peanutPlantProg$state_name))){
     geom_hline(yintercept=end, linetype="dotted", color="lightgrey",   size=.8) +
     scale_color_manual("", values=c("darkgoldenrod4", "darkgreen")) +
     scale_linetype_manual("", values=c("twodash", "solid"))+
-    theme_bw()
-  ggsave(paste("2progress", state, "graph.png", sep=""), width=6, height=4, units="in", dpi=600)
+    theme_bw() +
+    theme(legend.position = "bottom")
+  ggsave(paste("2progress", state, "graph.png", sep=""), width=5, height=3, units="in", dpi="retina")
   
   beginPeriod<-min(which(abs(hdat4graph5yrs$perc-begin)==min(abs(hdat4graph5yrs$perc-begin))))
   hbegin15<-as.numeric(hdat4graph5yrs$WOY[beginPeriod])+1
