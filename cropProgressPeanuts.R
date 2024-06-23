@@ -72,5 +72,5 @@ peanutProgDatGA <- peanutProgDat %>% filter(state == "Georgia")
     geom_line(data = peanutProgDatGA, aes(x=as.numeric(week), y=percent, group=stat, colour=stat), lwd=2) +
     xlab("week of year") + ylab("crop progress percentage (%)") + theme_bw() +
   theme(legend.position="bottom", legend.title =  element_blank()) 
-ggsave("cropProgGA.png", height=5, width=15, units="in", dpi = "retina")
+ggsave("cropProgGA.png", height=3, width=8, units="in", dpi = "retina")
 
